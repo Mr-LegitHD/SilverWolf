@@ -26,7 +26,6 @@ public class MainClass {
         for (final GatewayIntent gatewayIntent : GatewayIntent.values()) {
             builder.enableIntents(gatewayIntent, new GatewayIntent[0]);
         }
-
         //Listeners
         builder.addEventListeners(new StartListener());
         builder.addEventListeners(new GuildJoin());
@@ -34,7 +33,6 @@ public class MainClass {
         builder.addEventListeners(new PingCommand());
         builder.addEventListeners(new HelpCommand());
         builder.addEventListeners(new InfoCommand());
-        builder.addEventListeners(new Cuddlescmd());
         builder.addEventListeners(new MuteCommand());
         builder.addEventListeners(new UnmuteCommand());
         builder.addEventListeners(new Embed());
@@ -44,6 +42,7 @@ public class MainClass {
         builder.addEventListeners(new Automod());
         builder.addEventListeners(new Clear());
         builder.addEventListeners(new Warn());
+        builder.addEventListeners(new Cuddlescmd());
         builder.build();
     }
 }

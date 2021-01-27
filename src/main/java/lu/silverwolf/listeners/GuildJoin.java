@@ -5,25 +5,29 @@
 package lu.silverwolf.listeners;
 
 import java.text.DateFormat;
+
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
 import java.util.Collection;
 import java.awt.Color;
 import net.dv8tion.jda.api.EmbedBuilder;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+
+import net.dv8tion.jda.api.events.guild.GuildUnbanEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class GuildJoin extends ListenerAdapter
 {
     String message;
-    
     public GuildJoin() {
-        this.message = "**[member]** joined the server \u2728 ";
+        this.message = "Welcome **[member]** to The New Universe, you're the **[count]** \u2728 ";
     }
-    
     @Override
     public void onGuildMemberJoin(final GuildMemberJoinEvent event) {
+        int guildcount = event.getGuild().getMemberCount();
+
         final DateFormat dateFormat = new SimpleDateFormat("[H:m]");
         final Date newDate = new Date();
         System.out.println(dateFormat.format(newDate) + " " + event.getMember().getUser().getName() + " joined and got his role");
@@ -32,7 +36,7 @@ public class GuildJoin extends ListenerAdapter
         join.setTitle("**New Member**");
         join.setFooter("System");
         join.setThumbnail(event.getUser().getAvatarUrl());
-        join.setDescription(this.message.replace("[member]", event.getUser().getAsTag()));
+        join.setDescription("Welcome **"+event.getUser().getAsTag()+"** to the Server, you're the **"+guildcount+"**th Member \u2728 ");
         event.getGuild().getTextChannelById("752814038819405864").sendMessage(join.build()).queue();
         event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("Member", true)).complete();
     }

@@ -3,6 +3,7 @@ package lu.silverwolf;
 import javax.security.auth.login.LoginException;
 
 import lu.silverwolf.listeners.Automod;
+import lu.silverwolf.listeners.MemberUnbanned;
 import lu.silverwolf.listeners.Memberleave;
 import lu.silverwolf.listeners.GuildJoin;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -17,7 +18,7 @@ public class MainClass {
 
     public static void main(final String[] args) throws LoginException {
         //Starting Up
-        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKENTest);
+        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKEN);
         builder.setAutoReconnect(true);
         builder.setActivity(Activity.watching("to the Universe \u2728"));
         builder.setStatus(OnlineStatus.ONLINE);
@@ -43,6 +44,9 @@ public class MainClass {
         builder.addEventListeners(new Clear());
         builder.addEventListeners(new Warn());
         builder.addEventListeners(new Cuddlescmd());
+        builder.addEventListeners(new Uptime());
+        builder.addEventListeners(new Userinfo());
+        builder.addEventListeners(new MemberUnbanned());
         builder.build();
     }
 }

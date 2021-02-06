@@ -1,7 +1,8 @@
-package lu.silverwolf;
+package lu.silverwolf.infos;
 
 import javax.security.auth.login.LoginException;
 
+import lu.silverwolf.*;
 import lu.silverwolf.listeners.Automod;
 import lu.silverwolf.listeners.MemberUnbanned;
 import lu.silverwolf.listeners.Memberleave;
@@ -9,7 +10,6 @@ import lu.silverwolf.listeners.GuildJoin;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
-import lu.silverwolf.infos.Secrets;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
@@ -51,6 +51,7 @@ public class MainClass {
         builder.addEventListeners(new SelfAdvertising());
         builder.addEventListeners(new Teamlist());
         builder.addEventListeners(new Vote());
+        builder.addEventListeners(new AntiDankmemer());
         builder.build();
     }
 }

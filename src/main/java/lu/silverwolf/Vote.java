@@ -28,7 +28,7 @@ public class Vote extends ListenerAdapter
         if (args[0].equalsIgnoreCase(Secrets.prefix + "vote")) {
             final EmbedBuilder info = new EmbedBuilder();
             event.getMessage().delete().queue();
-            info.setTitle("\u2728 Our Team");
+            info.setTitle("\u2728 Vote");
             info.setDescription("Want to vote for this server? Check out this [link](https://top.gg/servers/752664145580654632/vote)");
             info.setFooter("System");
             info.setThumbnail("https://i.imgur.com/DayFdDP.png");

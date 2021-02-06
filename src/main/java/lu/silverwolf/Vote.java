@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
-public class SelfAdvertising extends ListenerAdapter
+public class Vote extends ListenerAdapter
 {
     public static JDA jda;
     
@@ -25,17 +25,18 @@ public class SelfAdvertising extends ListenerAdapter
         final DateFormat dateFormat = new SimpleDateFormat("[H:m]");
         final Date newDate = new Date();
         final String[] args = event.getMessage().getContentRaw().split("\\s+");
-        if (args[0].equalsIgnoreCase(Secrets.prefix + "ads")) {
+        if (args[0].equalsIgnoreCase(Secrets.prefix + "vote")) {
             final EmbedBuilder info = new EmbedBuilder();
             event.getMessage().delete().queue();
-            info.setTitle("\u2728 Self-advertising");
-            info.setDescription("To get acces to <#752811933178003477> just dm an Admin and tell him what you want to advertise. Nothing more \uD83D\uDE00 ");
+            info.setTitle("\u2728 Our Team");
+            info.setDescription("Want to vote for this server? Check out this [link](https://top.gg/servers/752664145580654632/vote)");
             info.setFooter("System");
+            info.setThumbnail("https://i.imgur.com/DayFdDP.png");
             info.setTimestamp(Instant.now());
             info.setColor(Color.ORANGE);
             event.getChannel().sendMessage(info.build()).queue();
             info.clear();
-            System.out.println(dateFormat.format(newDate) + " Command -ads got used by " + event.getAuthor().getName());
+            System.out.println(dateFormat.format(newDate) + " Command -teamlist got used by " + event.getAuthor().getName());
         }
     }
 }

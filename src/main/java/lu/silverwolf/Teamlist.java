@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
-public class SelfAdvertising extends ListenerAdapter
+public class Teamlist extends ListenerAdapter
 {
     public static JDA jda;
     
@@ -25,17 +25,23 @@ public class SelfAdvertising extends ListenerAdapter
         final DateFormat dateFormat = new SimpleDateFormat("[H:m]");
         final Date newDate = new Date();
         final String[] args = event.getMessage().getContentRaw().split("\\s+");
-        if (args[0].equalsIgnoreCase(Secrets.prefix + "ads")) {
+        if (args[0].equalsIgnoreCase(Secrets.prefix + "teamlist")) {
             final EmbedBuilder info = new EmbedBuilder();
             event.getMessage().delete().queue();
-            info.setTitle("\u2728 Self-advertising");
-            info.setDescription("To get acces to <#752811933178003477> just dm an Admin and tell him what you want to advertise. Nothing more \uD83D\uDE00 ");
+            info.setTitle("\u2728 Our Team");
+           /* Owner */ info.addField("Owner","<@750768307333890178>", false);
+           /* Admin */ info.addField("Admin","<@!747514278071894086>", false);
+           /* Event-Manager */ info.addField("Event-Manager","<@!483957638212747264>", false);
+           /* Head-Mod */ info.addField("Head-Mod","<@745273256973566059>", false);
+           /* Mod */ info.addField("Mod","<@745273256973566059>\n<@!483957638212747264>\n<@505024573448912898>\n<@343044879418392576>", false);
+           /* Bot-Developer */ info.addField("Bot-Developer","<@722854351600615465>", false);
             info.setFooter("System");
+            info.setThumbnail("https://i.imgur.com/ek2VZ07.png");
             info.setTimestamp(Instant.now());
             info.setColor(Color.ORANGE);
             event.getChannel().sendMessage(info.build()).queue();
             info.clear();
-            System.out.println(dateFormat.format(newDate) + " Command -ads got used by " + event.getAuthor().getName());
+            System.out.println(dateFormat.format(newDate) + " Command -teamlist got used by " + event.getAuthor().getName());
         }
     }
 }

@@ -18,7 +18,7 @@ public class MainClass {
 
     public static void main(final String[] args) throws LoginException {
         //Starting Up
-        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKENTest);
+        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKEN);
         builder.setAutoReconnect(true);
         builder.setActivity(Activity.watching("to the Universe \u2728"));
         builder.setStatus(OnlineStatus.ONLINE);
@@ -48,6 +48,9 @@ public class MainClass {
         builder.addEventListeners(new Userinfo());
         builder.addEventListeners(new MemberUnbanned());
         builder.addEventListeners(new OneWordStory());
+        builder.addEventListeners(new SelfAdvertising());
+        builder.addEventListeners(new Teamlist());
+        builder.addEventListeners(new Vote());
         builder.build();
     }
 }

@@ -1,12 +1,8 @@
 package lu.silverwolf.infos;
 
 import javax.security.auth.login.LoginException;
-
 import lu.silverwolf.*;
-import lu.silverwolf.listeners.Automod;
-import lu.silverwolf.listeners.MemberUnbanned;
-import lu.silverwolf.listeners.Memberleave;
-import lu.silverwolf.listeners.GuildJoin;
+import lu.silverwolf.listeners.*;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -18,7 +14,7 @@ public class MainClass {
 
     public static void main(final String[] args) throws LoginException {
         //Starting Up
-        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKEN);
+        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKENTest);
         builder.setAutoReconnect(true);
         builder.setActivity(Activity.watching("to the Universe \u2728"));
         builder.setStatus(OnlineStatus.ONLINE);

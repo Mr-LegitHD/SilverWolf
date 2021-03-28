@@ -19,6 +19,7 @@ public class Clear extends ListenerAdapter {
         if (event.getAuthor().isBot()) return;
         String[] args = event.getMessage().getContentRaw().split("\\s+");
         if (args[0].equalsIgnoreCase(Secrets.prefix + "clear")) {
+            event.getMessage().delete().queue();
             TextChannel channel = event.getChannel();
             Member selfMember = event.getGuild().getSelfMember();
 

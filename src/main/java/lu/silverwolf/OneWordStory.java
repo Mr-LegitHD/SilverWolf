@@ -21,7 +21,7 @@ public class OneWordStory extends ListenerAdapter {
 
                     });
             if (args.length > 1){
-                System.out.println("Message to short");
+                System.out.println("Message too short");
                 message.delete().queue();
             }
         }

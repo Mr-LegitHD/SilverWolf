@@ -1,4 +1,4 @@
-package lu.silverwolf;
+package lu.silverwolf.infos;
 
 import lu.silverwolf.infos.Secrets;
 import net.dv8tion.jda.api.EmbedBuilder;

@@ -2,7 +2,7 @@
 // Decompiled by Procyon v0.5.36
 //
 
-package lu.silverwolf;
+package lu.silverwolf.listeners;
 
 import lu.silverwolf.infos.Secrets;
 import net.dv8tion.jda.api.EmbedBuilder;

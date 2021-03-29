@@ -1,4 +1,4 @@
-package lu.silverwolf;
+package lu.silverwolf.Members;
 
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;

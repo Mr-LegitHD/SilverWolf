@@ -1,7 +1,14 @@
 package lu.silverwolf.infos;
 
 import javax.security.auth.login.LoginException;
-import lu.silverwolf.*;
+
+import lu.silverwolf.Admin.Embed;
+import lu.silverwolf.Admin.PingCommand;
+import lu.silverwolf.Help.HelpCommand;
+import lu.silverwolf.Help.InfoCommand;
+import lu.silverwolf.Help.ModHelp;
+import lu.silverwolf.Members.*;
+import lu.silverwolf.Moderation.*;
 import lu.silverwolf.listeners.*;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -48,6 +55,7 @@ public class MainClass {
         builder.addEventListeners(new AntiDankmemer());
         builder.addEventListeners(new AdsCommand());
         builder.addEventListeners(new Report());
+        builder.addEventListeners(new PartnerCommand());
         builder.build();
     }
 }

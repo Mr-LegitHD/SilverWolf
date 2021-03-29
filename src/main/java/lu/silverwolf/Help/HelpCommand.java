@@ -2,37 +2,36 @@
 // Decompiled by Procyon v0.5.36
 // 
 
-package lu.silverwolf;
+package lu.silverwolf.Help;
 
 import java.text.DateFormat;
 import java.awt.Color;
+import java.time.temporal.TemporalAccessor;
+import java.time.Instant;
 import net.dv8tion.jda.api.EmbedBuilder;
 import lu.silverwolf.infos.Secrets;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-public class Embed extends ListenerAdapter
+public class HelpCommand extends ListenerAdapter
 {
     @Override
     public void onGuildMessageReceived(final GuildMessageReceivedEvent event) {
-        if (!event.getMember().hasPermission(Permission.ADMINISTRATOR)) {
-            return;
-        }
-        final String[] args = event.getMessage().getContentRaw().split("\\s+");
         final DateFormat dateFormat = new SimpleDateFormat("[H:m]");
         final Date newDate = new Date();
-        if (args[0].equalsIgnoreCase(Secrets.prefix + "embed")) {
+        final String[] args = event.getMessage().getContentRaw().split("\\s+");
+        if (args[0].equalsIgnoreCase(Secrets.prefix + "help")) {
             final EmbedBuilder info = new EmbedBuilder();
-            info.setTitle(args[1]);
-            info.setDescription(args[2]);
+            info.setTitle("\u2728 Universe | Help & Commands");
+            info.setDescription("-help | List all Commands \n-info | Give you some infos about the Bot \n-ping | Get my Ping");
             info.setFooter("System");
-            info.setColor(Color.orange);
+            info.setTimestamp(Instant.now());
+            info.setColor(Color.blue);
             event.getChannel().sendMessage(info.build()).queue();
             info.clear();
-            System.out.println(dateFormat.format(newDate) + " Command -embed got used by " + event.getAuthor().getName());
+            System.out.println(dateFormat.format(newDate) + " Command -help got used by " + event.getAuthor().getName());
         }
     }
 }

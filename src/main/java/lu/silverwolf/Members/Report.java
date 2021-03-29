@@ -1,11 +1,10 @@
-package lu.silverwolf;
+package lu.silverwolf.Members;
 
 import lu.silverwolf.infos.Secrets;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
@@ -27,6 +26,7 @@ public class Report extends ListenerAdapter {
         final List<Member> members = message.getMentionedMembers();
         final Member member = members.get(0);
         final Guild guild = member.getGuild();
+        User Author = event.getAuthor();
         final String[] args = event.getMessage().getContentRaw().split("\\s+");
         String query = String.join(" ", (CharSequence[]) Arrays.copyOfRange(args, 2, args.length));
         if (args[0].equalsIgnoreCase(Secrets.prefix + "report")) {
@@ -41,10 +41,18 @@ public class Report extends ListenerAdapter {
             report.setThumbnail("https://i.imgur.com/r2rp4sY.png");
             report.setColor(Color.ORANGE);
             report.setTimestamp(Instant.now());
-            event.getGuild().getTextChannelById("825451882599546940").sendMessage(report.build()).queue();
+            report.setFooter("Delete this message after looking at the report");
+            event.getGuild().getTextChannelById("825451882599546940").sendMessage(report.build()).queue(message1 -> {
+                message1.addReaction(":verified:825712988203909180").queue();
+                message1.addReaction("❌").queue();
+            });
+
             report.clear();
-
-
+            //Send Direct Message
+            Author.openPrivateChannel().queue((channel) -> {
+                channel.sendMessage("Your report has been send successfully ✔️").queue();
+                System.out.println(dateFormat.format(newDate)+"Report created by "+Author);
+            });
         }
     }
 }

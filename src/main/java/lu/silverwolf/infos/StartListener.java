@@ -4,17 +4,15 @@
 
 package lu.silverwolf.infos;
 
-import java.util.Iterator;
 import java.text.DateFormat;
-import java.time.temporal.TemporalAccessor;
 import java.time.Instant;
 import java.awt.Color;
+
+import lu.silverwolf.Private.Secrets;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-
-import net.dv8tion.jda.api.entities.SelfUser;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -34,8 +32,10 @@ public class StartListener extends ListenerAdapter
         }
         final EmbedBuilder join = new EmbedBuilder();
         join.setColor(Color.ORANGE.getRGB());
-        join.setTitle("Universe\u2728");
-        join.setDescription("Bot is online with \n Ping: **" + event.getJDA().getGatewayPing() + "**ms!");
+        join.setTitle("Universe \u2728");
+        join.addField("**Bot Status**","Online",true);
+        join.addField("**Ping**","**"+event.getJDA().getGatewayPing()+ "**ms!",true);
+        join.addField("**Version**",Secrets.Version,true);
         join.setFooter("System");
         join.setTimestamp(Instant.now());
         event.getJDA().getTextChannelById("752825347866624021").sendMessage(join.build()).queue();

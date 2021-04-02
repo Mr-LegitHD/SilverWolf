@@ -1,14 +1,20 @@
-package lu.silverwolf.infos;
+package lu.silverwolf.Private;
 
 import javax.security.auth.login.LoginException;
 
 import lu.silverwolf.Admin.Embed;
 import lu.silverwolf.Admin.PingCommand;
+import lu.silverwolf.ExtraChannels.Couting;
+import lu.silverwolf.ExtraChannels.ExtraChains;
+import lu.silverwolf.ExtraChannels.OneWordStory;
 import lu.silverwolf.Help.HelpCommand;
 import lu.silverwolf.Help.InfoCommand;
 import lu.silverwolf.Help.ModHelp;
 import lu.silverwolf.Members.*;
 import lu.silverwolf.Moderation.*;
+import lu.silverwolf.infos.Changelog;
+import lu.silverwolf.infos.StartListener;
+import lu.silverwolf.infos.Uptime;
 import lu.silverwolf.listeners.*;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -32,6 +38,7 @@ public class MainClass {
         }
         //Listeners
         builder.addEventListeners(new StartListener());
+        builder.addEventListeners(new Changelog());
         builder.addEventListeners(new GuildJoin());
         builder.addEventListeners(new Memberleave());
         builder.addEventListeners(new PingCommand());
@@ -56,6 +63,10 @@ public class MainClass {
         builder.addEventListeners(new AdsCommand());
         builder.addEventListeners(new Report());
         builder.addEventListeners(new PartnerCommand());
+        builder.addEventListeners(new Shutdown());
+        builder.addEventListeners(new Couting());
+        builder.addEventListeners(new ExtraChains());
+        //builder.addEventListeners(new GuildMessageReactionAdd());
         builder.build();
     }
 }

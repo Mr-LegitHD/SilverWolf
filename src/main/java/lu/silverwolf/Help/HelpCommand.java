@@ -6,10 +6,9 @@ package lu.silverwolf.Help;
 
 import java.text.DateFormat;
 import java.awt.Color;
-import java.time.temporal.TemporalAccessor;
 import java.time.Instant;
 import net.dv8tion.jda.api.EmbedBuilder;
-import lu.silverwolf.infos.Secrets;
+import lu.silverwolf.Private.Secrets;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;

@@ -39,5 +39,11 @@ public class GuildJoin extends ListenerAdapter
         join.setDescription("Welcome **"+event.getUser().getAsTag()+"** to the Server, you're the **"+guildcount+"**th Member \u2728 ");
         event.getGuild().getTextChannelById("752814038819405864").sendMessage(join.build()).queue();
         event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("Member", true)).complete();
+
+        //Send Direct Message
+        event.getUser().openPrivateChannel().queue((channel) -> {
+            channel.sendMessage("Hello and welcome to **The Great Universe** Server. Enjoy our community and our daily nitro giveaways <3 ").queue();
+            System.out.println("Private Message send successfully");
+        });
     }
 }

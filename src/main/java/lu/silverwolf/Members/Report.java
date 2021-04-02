@@ -1,10 +1,9 @@
 package lu.silverwolf.Members;
 
-import lu.silverwolf.infos.Secrets;
+import lu.silverwolf.Private.Secrets;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
@@ -43,7 +42,6 @@ public class Report extends ListenerAdapter {
             report.setTimestamp(Instant.now());
             report.setFooter("Delete this message after looking at the report");
             event.getGuild().getTextChannelById("825451882599546940").sendMessage(report.build()).queue(message1 -> {
-                message1.addReaction(":verified:825712988203909180").queue();
                 message1.addReaction("❌").queue();
             });
 

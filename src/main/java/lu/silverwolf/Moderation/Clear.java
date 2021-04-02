@@ -1,6 +1,6 @@
 package lu.silverwolf.Moderation;
 
-import lu.silverwolf.infos.Secrets;
+import lu.silverwolf.Private.Secrets;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;

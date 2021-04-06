@@ -12,7 +12,6 @@ import lu.silverwolf.Help.InfoCommand;
 import lu.silverwolf.Help.ModHelp;
 import lu.silverwolf.Members.*;
 import lu.silverwolf.Moderation.*;
-import lu.silverwolf.infos.Changelog;
 import lu.silverwolf.infos.StartListener;
 import lu.silverwolf.infos.Uptime;
 import lu.silverwolf.listeners.*;

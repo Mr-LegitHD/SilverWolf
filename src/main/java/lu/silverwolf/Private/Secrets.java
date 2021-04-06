@@ -15,7 +15,7 @@ public class Secrets
         Secrets.TOKEN = "NzUyODE3NDU3MjMxNTYwNzM3.X1dJ5A.Ok-7euGdcl4ExWKnzBFneGpwYAM";
         Secrets.TOKENTest = "Nzg3MzA3NDQzNTU3NjI5OTUy.X9TDMg.4Bg0NHMNzYp2YGeIV_khNXD4PGg";
         Secrets.prefix = "-";
-        Secrets.Version = "1.1.3";
+        Secrets.Version = "v1.1.4";
 
     }
 }

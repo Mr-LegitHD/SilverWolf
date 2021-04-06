@@ -1,4 +1,4 @@
-package lu.silverwolf.infos;
+package lu.silverwolf.Private;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -17,8 +17,8 @@ public class Changelog extends ListenerAdapter {
 
         final EmbedBuilder join = new EmbedBuilder();
         join.setColor(new Color(255,156,0));
-        join.setTitle("Universe | Changelog v.1.1.3 \u2728");
-        join.setDescription("- Added better & faster Counting controller \n- Added Aeap-Chain Controller \n- Updated Permissions \n- Added Shutdown Command \n- Added RGB Colors \n- Added Private welcome message when joining this Guild ");
+        join.setTitle("Universe | Changelog "+Secrets.Version+" \u2728");
+        join.setDescription("- Bot deletes now wrong messages in <#823540883844235274> \n- Added a Server Status Security System");
         join.setFooter("System");
         join.setTimestamp(Instant.now());
         event.getJDA().getTextChannelById("827456453065179156").sendMessage(join.build()).queue();

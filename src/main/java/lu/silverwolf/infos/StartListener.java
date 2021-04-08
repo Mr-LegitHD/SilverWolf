@@ -58,7 +58,7 @@ public class StartListener extends ListenerAdapter
             System.out.println("Ping -> "+event.getJDA().getGatewayPing());
             //System.out.println(Secrets.ANSI_YELLOW+"[Info]"+Secrets.ANSI_RESET+Secrets.ANSI_BLUE+" Reloaded ServerCount on "+Secrets.ANSI_CYAN+"Top.gg"+Secrets.ANSI_RESET+" ✔️");
             try {
-                Thread.sleep(300000);
+                Thread.sleep(900000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -66,7 +66,7 @@ public class StartListener extends ListenerAdapter
             //System.out.println(Secrets.ANSI_YELLOW+"[Info]"+Secrets.ANSI_RESET+Secrets.ANSI_BLUE+" Reloaded ServerCount on "+Secrets.ANSI_CYAN+"Top.gg"+Secrets.ANSI_RESET+" ✔️");
         };
 
-        executor.scheduleWithFixedDelay(task, 0, 5, TimeUnit.MINUTES);
+        executor.scheduleWithFixedDelay(task, 0, 15, TimeUnit.MINUTES);
 
     }
 }

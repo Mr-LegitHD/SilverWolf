@@ -8,6 +8,8 @@ import java.text.DateFormat;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Role;
+
+import java.time.Instant;
 import java.util.Collection;
 import java.awt.Color;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -20,6 +22,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class GuildJoin extends ListenerAdapter
 {
+
     String message;
     public GuildJoin() {
         this.message = "Welcome **[member]** to The New Universe, you're the **[count]** \u2728 ";
@@ -37,13 +40,19 @@ public class GuildJoin extends ListenerAdapter
         join.setFooter("System");
         join.setThumbnail(event.getUser().getAvatarUrl());
         join.setDescription("Welcome **"+event.getUser().getAsTag()+"** to the Server, you're the **"+guildcount+"**th Member \u2728 ");
+        //Send Direct Message
+        event.getUser().openPrivateChannel().queue((channel) -> {
+            final EmbedBuilder dmjoin = new EmbedBuilder();
+            dmjoin.setTitle("\u2728 Universe | Welcome");
+            dmjoin.setDescription("Hello and welcome on **The Great Universe** Server. Enjoy our community and have fun <3");
+            dmjoin.setTimestamp(Instant.now());
+            dmjoin.setColor(Color.CYAN);
+            channel.sendMessage(dmjoin.build()).queue();
+            dmjoin.clear();
+        });
         event.getGuild().getTextChannelById("752814038819405864").sendMessage(join.build()).queue();
         event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("Member", true)).complete();
 
-        //Send Direct Message
-        event.getUser().openPrivateChannel().queue((channel) -> {
-            channel.sendMessage("Hello and welcome to **The Great Universe** Server. Enjoy our community and our daily nitro giveaways <3 ").queue();
-            System.out.println("Private Message send successfully");
-        });
+
     }
 }

@@ -10,6 +10,7 @@ import lu.silverwolf.ExtraChannels.OneWordStory;
 import lu.silverwolf.Help.HelpCommand;
 import lu.silverwolf.Help.InfoCommand;
 import lu.silverwolf.Help.ModHelp;
+import lu.silverwolf.Log.Logging;
 import lu.silverwolf.Members.*;
 import lu.silverwolf.Moderation.*;
 import lu.silverwolf.infos.StartListener;
@@ -65,6 +66,7 @@ public class MainClass {
         builder.addEventListeners(new Shutdown());
         builder.addEventListeners(new Couting());
         builder.addEventListeners(new ExtraChains());
+        builder.addEventListeners(new Logging());
         //builder.addEventListeners(new GuildMessageReactionAdd());
         builder.build();
     }

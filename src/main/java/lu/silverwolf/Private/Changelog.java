@@ -18,7 +18,10 @@ public class Changelog extends ListenerAdapter {
         final EmbedBuilder join = new EmbedBuilder();
         join.setColor(new Color(255,156,0));
         join.setTitle("Universe | Changelog "+Secrets.Version+" \u2728");
-        join.setDescription("- Added custom Log \n-Added Message Delete Log \n-Added VC Join & Leave Log ");
+        join.setDescription("- Added Message Log\n" +
+                "- Added Move Log\n" +
+                "- Added Message Update Log\n" +
+                "- Reduced Server Status check to every 15min");
         join.setFooter("System");
         join.setTimestamp(Instant.now());
         event.getJDA().getTextChannelById("827456453065179156").sendMessage(join.build()).queue();

@@ -17,7 +17,7 @@ public class Secrets
         Secrets.TOKEN = "NzUyODE3NDU3MjMxNTYwNzM3.X1dJ5A.Ok-7euGdcl4ExWKnzBFneGpwYAM";
         Secrets.TOKENTest = "Nzg3MzA3NDQzNTU3NjI5OTUy.X9TDMg.4Bg0NHMNzYp2YGeIV_khNXD4PGg";
         Secrets.prefix = "-";
-        Secrets.Version = "v1.1.5";
+        Secrets.Version = "v1.1.6";
         Secrets.Guildid = "752664145580654632";
         Secrets.Log = "829358295785013289";
 

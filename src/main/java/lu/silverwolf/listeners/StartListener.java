@@ -1,29 +1,23 @@
-// 
-// Decompiled by Procyon v0.5.36
-// 
+package lu.silverwolf.listeners;
 
-package lu.silverwolf.infos;
-
-import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.time.Instant;
 import java.awt.Color;
-
 import lu.silverwolf.Private.Secrets;
+import lu.silverwolf.infos.Colors;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class StartListener extends ListenerAdapter
 {
+
     @Override
     public void onReady(final ReadyEvent event) {
         final DateFormat dateFormat = new SimpleDateFormat("[H:m]");
@@ -32,6 +26,7 @@ public class StartListener extends ListenerAdapter
 
         System.out.println(Colors.ANSI_RED+dateFormat.format(newDate) + Colors.ANSI_GREEN+" Logging into "+botname);
         System.out.println(Colors.ANSI_RED+dateFormat.format(newDate) + Colors.ANSI_YELLOW+" Building SilverWolf.jar");
+        System.out.println(Colors.ANSI_RED+dateFormat.format(newDate) + Colors.ANSI_YELLOW+" Starting Version "+Secrets.Version);
         String out = "\n" +Colors.ANSI_RED +dateFormat.format(newDate) + Colors.ANSI_YELLOW+" Server Status: \n";
         for (final Guild g : event.getJDA().getGuilds()) {
             out = out +"- "+ g.getName() + " (" +Colors.ANSI_BLUE+ g.getMemberCount() + Colors.ANSI_YELLOW+") Members \n";

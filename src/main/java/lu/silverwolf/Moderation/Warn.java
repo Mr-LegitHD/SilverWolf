@@ -30,7 +30,7 @@ public class Warn extends ListenerAdapter {
                 if(!event.getGuild().getId().equals("752664145580654632")) return;
 
                 if (!event.getMember().hasPermission(Permission.MESSAGE_MANAGE)) {
-                    event.getChannel().sendMessage("You need the `Ban Members` permission to use this command").queue();
+                    event.getChannel().sendMessage("You need the `Manage Messages` permission to use this command").queue();
 
                     return;
                 }

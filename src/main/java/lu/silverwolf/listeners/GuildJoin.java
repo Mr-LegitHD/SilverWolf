@@ -31,6 +31,7 @@ public class GuildJoin extends ListenerAdapter
     public void onGuildMemberJoin(final GuildMemberJoinEvent event) {
         int guildcount = event.getGuild().getMemberCount();
 
+
         final DateFormat dateFormat = new SimpleDateFormat("[H:m]");
         final Date newDate = new Date();
         System.out.println(dateFormat.format(newDate) + " " + event.getMember().getUser().getName() + " joined and got his role");

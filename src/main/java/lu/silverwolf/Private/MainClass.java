@@ -22,13 +22,15 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.sharding.DefaultShardManager;
+import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 
 public class MainClass {
     public static JDA jda;
 
     public static void main(final String[] args) throws LoginException {
         //Starting Up
-        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKEN);
+        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKENTest);
         builder.setAutoReconnect(true);
         builder.setActivity(Activity.watching("to the Universe \u2728"));
         builder.setStatus(OnlineStatus.ONLINE);
@@ -39,7 +41,7 @@ public class MainClass {
         }
         //Listeners
         builder.addEventListeners(new StartListener());
-        builder.addEventListeners(new Changelog());
+       // builder.addEventListeners(new Changelog());
         builder.addEventListeners(new GuildJoin());
         builder.addEventListeners(new Memberleave());
         builder.addEventListeners(new PingCommand());

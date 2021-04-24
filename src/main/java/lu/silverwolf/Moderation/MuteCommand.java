@@ -16,6 +16,8 @@ import lu.silverwolf.Private.Secrets;
 import net.dv8tion.jda.api.Permission;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.TimeUnit;
+
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -34,6 +36,19 @@ public class MuteCommand extends ListenerAdapter {
         }
         final String[] args = event.getMessage().getContentRaw().split("\\s+");
         if (args[0].equalsIgnoreCase(Secrets.prefix + "mute")) {
+            if (args.length < 3) {
+                event.getMessage().delete().queue();
+                //Embed Builder
+                EmbedBuilder mute = new EmbedBuilder();
+                mute.setTitle("Error");
+                mute.setDescription("Correct Usage: -mute <@user> <Reason>");
+                mute.setFooter("System");
+                mute.setTimestamp(Instant.now());
+                mute.setColor(Color.RED);
+                event.getChannel().sendMessage(mute.build()).queue(message -> message.delete().queueAfter(3, TimeUnit.SECONDS));
+                mute.clear();
+                return;
+            }
             String tagged = args[1];
             String query = String.join(" ", (CharSequence[]) Arrays.copyOfRange(args, 2, args.length));
             final Message message = event.getMessage();

@@ -45,7 +45,7 @@ public class UnmuteCommand extends ListenerAdapter
                 });
 
             final EmbedBuilder mute = new EmbedBuilder();
-            mute.setTitle("\u2728 Universe | Mute");
+            mute.setTitle("\u2728 Universe | Unmute");
             mute.setDescription("Member " + args[1] + " got unmuted by " + event.getAuthor().getAsMention());
             mute.setFooter("ID: "+member.getId());
             mute.setTimestamp(Instant.now());

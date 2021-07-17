@@ -30,7 +30,7 @@ public class Userinfo extends ListenerAdapter {
                     //Embed Builder
                     EmbedBuilder info = new EmbedBuilder();
                     info.setThumbnail(userTarget.getAvatarUrl());
-                    info.setTitle("\uD83D\uDCAD NightSky | Profile");
+                    info.setTitle("\uD83D\uDCAD System | Profile");
                     info.addField("**Name:** ", userTarget.getName(), false);
                     info.addField("**ID:** ", userTarget.getId(), false);
                     info.addField("**Warns:** ", "Coming soon", false);

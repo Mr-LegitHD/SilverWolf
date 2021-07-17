@@ -40,7 +40,7 @@ public class BanCommand extends ListenerAdapter
                 //Embed Builder
                 EmbedBuilder mute = new EmbedBuilder();
                 mute.setTitle("Error");
-                mute.setDescription("Correct Usage: +ban <@user> <Reason>");
+                mute.setDescription("Correct Usage: -ban <@user> <Reason>");
                 mute.setFooter("System");
                 mute.setTimestamp(Instant.now());
                 mute.setColor(Color.RED);

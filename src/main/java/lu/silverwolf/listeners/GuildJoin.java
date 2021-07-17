@@ -15,6 +15,7 @@ import java.awt.Color;
 import net.dv8tion.jda.api.EmbedBuilder;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.TimeUnit;
 
 import net.dv8tion.jda.api.events.guild.GuildUnbanEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
@@ -25,7 +26,7 @@ public class GuildJoin extends ListenerAdapter
 
     String message;
     public GuildJoin() {
-        this.message = "Welcome **[member]** to The New Universe, you're the **[count]** \u2728 ";
+        this.message = "Welcome **[member]** to The Royal Universe, you're the **[count]** \u2728 ";
     }
     @Override
     public void onGuildMemberJoin(final GuildMemberJoinEvent event) {
@@ -45,7 +46,7 @@ public class GuildJoin extends ListenerAdapter
         event.getUser().openPrivateChannel().queue((channel) -> {
             final EmbedBuilder dmjoin = new EmbedBuilder();
             dmjoin.setTitle("\u2728 Universe | Welcome");
-            dmjoin.setDescription("Hello and welcome on **The Great Universe** Server. Enjoy our community and have fun <3");
+            dmjoin.setDescription("Hello and welcome on **The Royal Universe** Server. Enjoy our community and have fun <3");
             dmjoin.setTimestamp(Instant.now());
             dmjoin.setColor(Color.CYAN);
             channel.sendMessage(dmjoin.build()).queue();

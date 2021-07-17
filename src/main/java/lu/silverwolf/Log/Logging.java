@@ -25,6 +25,7 @@ public class Logging extends ListenerAdapter {
         String channelid = event.getChannel().getId();
         if (event.getChannel().getId().equals("829358295785013289")) return;
         if (event.getChannel().getId().equals("827456453065179156")) return;
+        if (event.getChannel().getId().equals("803350440330264666")) return;
         //Embedbuilder
         final EmbedBuilder delete = new EmbedBuilder();
         delete.setTitle("\u2728 Log | Message Deleted");
@@ -85,6 +86,7 @@ public class Logging extends ListenerAdapter {
         if (event.getChannel().getId().equals("829358295785013289")) return;
         if (event.getChannel().getId().equals("830040805489901608")) return;
         if (event.getChannel().getId().equals("827456453065179156")) return;
+        if (event.getChannel().getId().equals("803350440330264666")) return;
         if (event.getMessage().getAuthor().getId().equals("752817457231560737")) return;
         final EmbedBuilder info = new EmbedBuilder();
         info.setTitle("\u2728 Log | Message Send");
@@ -93,7 +95,7 @@ public class Logging extends ListenerAdapter {
         info.addField("**Message ID **",messageid,false);
         info.addField("**Message **",message,false);
         info.addField("**Click **","[Click to jump to message]("+jumpurl+")",false);
-        info.setFooter("System");
+        info.setFooter("User ID | "+event.getMember().getUser().getId());
         info.setTimestamp(Instant.now());
         info.setColor(new Color(88,167,233));
         event.getJDA().getGuildById(Secrets.Guildid).getTextChannelById("830040805489901608").sendMessage(info.build()).queue();
@@ -110,6 +112,7 @@ public class Logging extends ListenerAdapter {
         if (event.getChannel().getId().equals("829358295785013289")) return;
         if (event.getChannel().getId().equals("830040805489901608")) return;
         if (event.getChannel().getId().equals("827456453065179156")) return;
+        if (event.getChannel().getId().equals("803350440330264666")) return;
         if (event.getMessage().getAuthor().getId().equals("752817457231560737")) return;
         final EmbedBuilder info = new EmbedBuilder();
         info.setTitle("\u2728 Log | Message Updated");

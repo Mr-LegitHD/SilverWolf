@@ -24,7 +24,7 @@ public class StartListener extends ListenerAdapter
         final Date newDate = new Date();
         String botname = event.getJDA().getSelfUser().getAsTag();
 
-        System.out.println(Colors.ANSI_RED+dateFormat.format(newDate) + Colors.ANSI_GREEN+" Logging into "+botname);
+        System.out.println(Colors.ANSI_RED+dateFormat.format(newDate) + Colors.ANSI_GREEN+" Logging into " + botname);
         System.out.println(Colors.ANSI_RED+dateFormat.format(newDate) + Colors.ANSI_YELLOW+" Building SilverWolf.jar");
         System.out.println(Colors.ANSI_RED+dateFormat.format(newDate) + Colors.ANSI_YELLOW+" Starting Version "+Secrets.Version);
         String out = "\n" +Colors.ANSI_RED +dateFormat.format(newDate) + Colors.ANSI_YELLOW+" Server Status: \n";
@@ -53,7 +53,7 @@ public class StartListener extends ListenerAdapter
             System.out.println("Ping -> "+event.getJDA().getGatewayPing());
             //System.out.println(Secrets.ANSI_YELLOW+"[Info]"+Secrets.ANSI_RESET+Secrets.ANSI_BLUE+" Reloaded ServerCount on "+Secrets.ANSI_CYAN+"Top.gg"+Secrets.ANSI_RESET+" ✔️");
             try {
-                Thread.sleep(900000);
+                Thread.sleep(43200000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -61,7 +61,7 @@ public class StartListener extends ListenerAdapter
             //System.out.println(Secrets.ANSI_YELLOW+"[Info]"+Secrets.ANSI_RESET+Secrets.ANSI_BLUE+" Reloaded ServerCount on "+Secrets.ANSI_CYAN+"Top.gg"+Secrets.ANSI_RESET+" ✔️");
         };
 
-        executor.scheduleWithFixedDelay(task, 0, 15, TimeUnit.MINUTES);
+        executor.scheduleWithFixedDelay(task, 0, 12, TimeUnit.HOURS);
 
     }
 }

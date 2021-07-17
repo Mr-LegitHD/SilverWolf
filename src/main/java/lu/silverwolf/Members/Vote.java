@@ -36,7 +36,7 @@ public class Vote extends ListenerAdapter
             info.setColor(Color.ORANGE);
             event.getChannel().sendMessage(info.build()).queue();
             info.clear();
-            System.out.println(dateFormat.format(newDate) + " Command -teamlist got used by " + event.getAuthor().getName());
+            System.out.println(dateFormat.format(newDate) + " Command -vote got used by " + event.getAuthor().getName());
         }
     }
 }

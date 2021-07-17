@@ -1,9 +1,9 @@
 package lu.silverwolf.Private;
 
 import javax.security.auth.login.LoginException;
-import javax.swing.*;
-
 import lu.silverwolf.Admin.Embed;
+import lu.silverwolf.Admin.GiveEveryoneRole;
+import lu.silverwolf.Admin.Giveaway;
 import lu.silverwolf.Admin.PingCommand;
 import lu.silverwolf.ExtraChannels.Couting;
 import lu.silverwolf.ExtraChannels.ExtraChains;
@@ -22,15 +22,15 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.sharding.DefaultShardManager;
-import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
+import net.dv8tion.jda.api.utils.ChunkingFilter;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
 public class MainClass {
     public static JDA jda;
 
     public static void main(final String[] args) throws LoginException {
         //Starting Up
-        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKENTest);
+        final JDABuilder builder = JDABuilder.createDefault(Secrets.TOKEN);
         builder.setAutoReconnect(true);
         builder.setActivity(Activity.watching("to the Universe \u2728"));
         builder.setStatus(OnlineStatus.ONLINE);
@@ -70,6 +70,12 @@ public class MainClass {
         builder.addEventListeners(new Couting());
         builder.addEventListeners(new ExtraChains());
         builder.addEventListeners(new Logging());
+        builder.addEventListeners(new Giveaway());
+        builder.addEventListeners(new GiveEveryoneRole());
+        builder.addEventListeners(new MemberBanned());
+
+        builder.setMemberCachePolicy(MemberCachePolicy.ALL);
+        builder.setChunkingFilter(ChunkingFilter.ALL);
         //builder.addEventListeners(new GuildMessageReactionAdd());
         builder.build();
     }

@@ -2,6 +2,7 @@ package lu.silverwolf.listeners;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.guild.GuildBanEvent;
 import net.dv8tion.jda.api.events.guild.GuildUnbanEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -15,7 +16,7 @@ import java.util.Date;
 public class MemberBanned extends ListenerAdapter {
 
     @Override
-    public void onGuildUnban(GuildUnbanEvent event) {
+    public void onGuildBan(GuildBanEvent event) {
         final DateFormat dateFormat = new SimpleDateFormat("[H:m]");
         final Date newDate = new Date();
         User member = event.getUser();

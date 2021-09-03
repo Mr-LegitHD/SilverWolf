@@ -55,10 +55,23 @@ public class BanCommand extends ListenerAdapter
             final List<Member> members = message.getMentionedMembers();
             if (!members.isEmpty()) {
                 final Member member = members.get(0);
+
+                //Send Direct Message
+                final EmbedBuilder mute = new EmbedBuilder();
+                member.getUser().openPrivateChannel().queue((channel) -> {
+
+                    mute.setTitle("\u2728 Universe | Ban");
+                    mute.setDescription("You got banned by " + event.getAuthor().getAsMention() + " for the Reason **" + query + "**"+ "\n if you want to get unbanned click [here](https://forms.gle/2D8uFBhVJ1xxjJyJ7) and fill in the form." );
+                    mute.setFooter("ID: " + member.getId());
+                    mute.setTimestamp(Instant.now());
+                    mute.setColor(Color.RED);
+                    channel.sendMessage(mute.build()).queue();
+                    mute.clear();
+                });
                 //Ban Member
                 event.getGuild().ban(member, 1,query).queue();
 
-                final EmbedBuilder mute = new EmbedBuilder();
+
                 mute.setTitle("\u2728 Universe | Ban");
                 mute.setDescription("Member " + args[1] + " got banned by " + event.getAuthor().getAsMention() + "\nReason: " + query);
                 mute.setFooter("ID: "+member.getId());
@@ -68,16 +81,7 @@ public class BanCommand extends ListenerAdapter
                 event.getGuild().getTextChannelById("793554880273973298").sendMessage("Member **"+member.getUser().getAsTag()+"** got banned for **"+query+"**").queue();
                 mute.clear();
                 System.out.println(dateFormat.format(newDate) + " Command -ban got used by " + event.getAuthor().getName());
-                //Send Direct Message
-                member.getUser().openPrivateChannel().queue((channel) -> {
-                    mute.setTitle("\u2728 Universe | Ban");
-                    mute.setDescription("You got banned by " + event.getAuthor().getAsMention() + " for the Reason **" + query + "**");
-                    mute.setFooter("ID: " + member.getId());
-                    mute.setTimestamp(Instant.now());
-                    mute.setColor(Color.RED);
-                    channel.sendMessage(mute.build()).queue();
-                    mute.clear();
-                });
+
             }
         }
     }

@@ -40,3 +40,4 @@ public class Vote extends ListenerAdapter
         }
     }
 }
+

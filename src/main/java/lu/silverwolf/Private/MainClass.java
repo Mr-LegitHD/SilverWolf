@@ -41,7 +41,7 @@ public class MainClass {
         }
         //Listeners
         builder.addEventListeners(new StartListener());
-       // builder.addEventListeners(new Changelog());
+     //   builder.addEventListeners(new Changelog());
         builder.addEventListeners(new GuildJoin());
         builder.addEventListeners(new Memberleave());
         builder.addEventListeners(new PingCommand());
@@ -72,7 +72,7 @@ public class MainClass {
         builder.addEventListeners(new Logging());
         builder.addEventListeners(new Giveaway());
         builder.addEventListeners(new GiveEveryoneRole());
-        builder.addEventListeners(new MemberBanned());
+        //builder.addEventListeners(new MemberBanned());
 
         builder.setMemberCachePolicy(MemberCachePolicy.ALL);
         builder.setChunkingFilter(ChunkingFilter.ALL);

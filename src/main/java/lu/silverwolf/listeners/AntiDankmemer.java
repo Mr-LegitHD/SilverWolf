@@ -23,6 +23,7 @@ public class AntiDankmemer extends ListenerAdapter
         final Date newDate = new Date();
         final String[] args = event.getMessage().getContentRaw().split("\\s+");
         TextChannel channel = event.getChannel();
+        if (event.getChannel().getId().equals("881796633774419968")) return;
         if (event.getMessage().getAuthor().getId().equals("270904126974590976")) {
             if (!channel.getId().equals("752808524555223060")) {
                 event.getMessage().delete().queue();

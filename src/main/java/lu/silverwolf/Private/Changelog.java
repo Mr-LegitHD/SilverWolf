@@ -18,7 +18,7 @@ public class Changelog extends ListenerAdapter {
         final EmbedBuilder join = new EmbedBuilder();
         join.setColor(new Color(255,156,0));
         join.setTitle("Universe | Changelog "+Secrets.Version+" \u2728");
-        join.setDescription("- Change Error at unmute log message");
+        join.setDescription("- Added autowarn System");
         join.setFooter("System");
         join.setTimestamp(Instant.now());
         event.getJDA().getTextChannelById("827456453065179156").sendMessage(join.build()).queue();

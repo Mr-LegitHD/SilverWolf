@@ -72,6 +72,7 @@ public class MainClass {
         builder.addEventListeners(new Logging());
         builder.addEventListeners(new Giveaway());
         builder.addEventListeners(new GiveEveryoneRole());
+      //Soon // builder.addEventListeners(new Suggestions());
         //builder.addEventListeners(new MemberBanned());
 
         builder.setMemberCachePolicy(MemberCachePolicy.ALL);

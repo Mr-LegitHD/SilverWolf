@@ -43,6 +43,18 @@ public class Automod extends ListenerAdapter {
             event.getGuild().getTextChannelById("752818053410193510").sendMessage(mute.build()).queue();
             mute.clear();
         } else
+        if(message.toLowerCase().contains("https://discord.com/invite/")) {
+            event.getMessage().delete().queue();
+            //AutoEmbed
+            EmbedBuilder mute = new EmbedBuilder();
+            mute.setTitle("✨ Universe | Warn");
+            mute.setDescription("Member " + event.getMessage().getAuthor().getAsMention() + " got warned by <@752817457231560737>" + "\nReason: Sending forbidden Links");
+            mute.setFooter("ID: "+event.getMessage().getAuthor().getId());
+            mute.setTimestamp(Instant.now());
+            mute.setColor(Color.RED);
+            event.getGuild().getTextChannelById("752818053410193510").sendMessage(mute.build()).queue();
+            mute.clear();
+        } else
         if(message.toLowerCase().contains("twitch.tv")) {
             event.getMessage().delete().queue();
             //AutoEmbed

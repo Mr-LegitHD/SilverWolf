@@ -41,7 +41,7 @@ public class GuildJoin extends ListenerAdapter
         join.setTitle("**New Member**");
         join.setFooter("System");
         join.setThumbnail(event.getUser().getAvatarUrl());
-        join.setDescription("Welcome **"+event.getUser().getAsTag()+"** to the Server, you're the **"+guildcount+"**th Member \u2728 ");
+        join.setDescription("Welcome **"+event.getUser().getAsMention()+"** to the Server, you're the **"+guildcount+"**th Member \u2728 ");
         //Send Direct Message
         event.getUser().openPrivateChannel().queue((channel) -> {
             final EmbedBuilder dmjoin = new EmbedBuilder();
@@ -53,7 +53,7 @@ public class GuildJoin extends ListenerAdapter
             dmjoin.clear();
         });
         event.getGuild().getTextChannelById("752814038819405864").sendMessage(join.build()).queue();
-        event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("Member", true)).complete();
+     // Removed bc of verified bot   event.getGuild().modifyMemberRoles(event.getMember(), event.getGuild().getRolesByName("Member", true)).complete();
 
 
     }

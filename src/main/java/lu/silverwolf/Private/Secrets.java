@@ -15,7 +15,7 @@ public class Secrets
 
     static {
         Secrets.TOKEN = "NzUyODE3NDU3MjMxNTYwNzM3.X1dJ5A.Ok-7euGdcl4ExWKnzBFneGpwYAM";
-        Secrets.TOKENTest = "Nzg3MzA3NDQzNTU3NjI5OTUy.X9TDMg.B3ZEC31tZpHtFM9XqxWHhndfLzg";
+        Secrets.TOKENTest = "Nzg3MzA3NDQzNTU3NjI5OTUy.X9TDMg.WrNuNzCTDBQpiZuND7gGB0NZvXU";
         Secrets.prefix = "-";
         Secrets.Version = "v1.1.9";
         Secrets.Guildid = "752664145580654632";

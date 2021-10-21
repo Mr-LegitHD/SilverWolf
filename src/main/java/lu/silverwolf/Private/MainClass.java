@@ -9,9 +9,13 @@ import lu.silverwolf.ExtraChannels.Couting;
 import lu.silverwolf.ExtraChannels.ExtraChains;
 import lu.silverwolf.ExtraChannels.OneWordStory;
 import lu.silverwolf.Help.HelpCommand;
+import lu.silverwolf.Help.HelpMath;
 import lu.silverwolf.Help.InfoCommand;
 import lu.silverwolf.Help.ModHelp;
 import lu.silverwolf.Log.Logging;
+import lu.silverwolf.Math.Calc;
+import lu.silverwolf.Math.Delta;
+import lu.silverwolf.Math.Prozent;
 import lu.silverwolf.Members.*;
 import lu.silverwolf.Moderation.*;
 import lu.silverwolf.listeners.StartListener;
@@ -73,6 +77,9 @@ public class MainClass {
         builder.addEventListeners(new Giveaway());
         builder.addEventListeners(new GiveEveryoneRole());
         builder.addEventListeners(new Calc());
+        builder.addEventListeners(new Delta());
+        builder.addEventListeners(new HelpMath());
+      //  builder.addEventListeners(new Prozent());
       //Soon // builder.addEventListeners(new Suggestions());
         //builder.addEventListeners(new MemberBanned());
 

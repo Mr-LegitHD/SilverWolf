@@ -1,4 +1,4 @@
-package lu.silverwolf.Members;
+package lu.silverwolf.Math;
 
 
 import lu.silverwolf.Private.Secrets;
@@ -24,7 +24,7 @@ public class Calc extends ListenerAdapter {
                 event.getMessage().delete().queueAfter(5, TimeUnit.SECONDS);
                 //Embed Builder
                 EmbedBuilder mute = new EmbedBuilder();
-                event.getChannel().sendMessage("Use one of the following operators: `+ - * /` \nUse the following Syntax: `-calc <Number1> <operator> <Number2>`").queue(message -> message.delete().queueAfter(10, TimeUnit.SECONDS));
+                event.getChannel().sendMessage("Use one of the following operators: `+ - * /` \nUse the following Syntax: `-calc <Number1> <operator> <Number2>`").queue();
                 mute.clear();
                 return;
             }
@@ -57,9 +57,8 @@ public class Calc extends ListenerAdapter {
 
 
 
-
         }
-
 
     }
 }
+

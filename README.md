@@ -1,2 +1,2 @@
 # SilverWolf
-private Discord Bot from the The Great Universe Discord Server but now public because of server loss ;)
+This was the Discord Bot of my Discord Server. Now the code is public for everyone and can be used for new bots. 
